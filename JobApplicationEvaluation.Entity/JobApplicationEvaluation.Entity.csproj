@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JobApplicationEvaluation.Core\JobApplicationEvaluation.Core.csproj" />
+  </ItemGroup>
+
 </Project>
