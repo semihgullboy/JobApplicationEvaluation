@@ -1,0 +1,16 @@
+﻿using JobApplicationEvaluation.DataAccess.Concrete.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace JobApplicationEvaluation.DataAccess.Extensions
+{
+    public static class ServiceRegistration
+    {
+        public static void AddDataAccessServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<JobApplicationEvaluationContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("Context")));
+        }
+    }
+}
