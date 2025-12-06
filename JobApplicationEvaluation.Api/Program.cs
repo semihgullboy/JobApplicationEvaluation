@@ -1,4 +1,5 @@
 using JobApplicationEvaluation.DataAccess.Extensions;
+using JobApplicationEvaluation.Business.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddDataAccessServices(builder.Configuration);
+builder.Services.AddBusinessServices(builder.Configuration); 
 
 var app = builder.Build();
 

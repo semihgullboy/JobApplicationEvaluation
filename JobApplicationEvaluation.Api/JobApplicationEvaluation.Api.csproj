@@ -19,10 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\JobApplicationEvaluation.Business\JobApplicationEvaluation.Business.csproj" />
+    <ProjectReference Include="..\JobApplicationEvaluation.Core\JobApplicationEvaluation.Core.csproj" />
     <ProjectReference Include="..\JobApplicationEvaluation.DataAccess\JobApplicationEvaluation.DataAccess.csproj" />
   </ItemGroup>
 
