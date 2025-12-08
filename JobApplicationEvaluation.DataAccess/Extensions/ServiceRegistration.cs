@@ -15,7 +15,7 @@ namespace JobApplicationEvaluation.DataAccess.Extensions
                 options.UseNpgsql(configuration.GetConnectionString("Context")));
 
             services.AddScoped<IUserDal, EfUserDal>();
-
+            services.AddScoped<ICompanyDal, EfCompanyDal>();
         }
     }
 }

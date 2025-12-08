@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using JobApplicationEvaluation.Entity.Concrete;
 using JobApplicationEvaluation.ViewModels.BaseViewModel;
+using JobApplicationEvaluation.ViewModels.RequestViewModel.Company;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.User;
 
 namespace JobApplicationEvaluation.Business.MappingProfiles
@@ -11,6 +12,8 @@ namespace JobApplicationEvaluation.Business.MappingProfiles
         {
             CreateMap<CreateUserRequestViewModel, User>();
             CreateMap<User, UserBaseViewModel>();
+            CreateMap<CreateCompanyViewModel, Company>();
+            CreateMap<Company, CompanyBaseViewModel>();
         }
     }
 }
