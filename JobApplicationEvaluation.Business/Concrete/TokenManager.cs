@@ -1,8 +1,11 @@
 ﻿using JobApplicationEvaluation.Business.Abstract;
+using JobApplicationEvaluation.Core.Result;
+using JobApplicationEvaluation.ViewModels.BaseViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -11,11 +14,13 @@ namespace JobApplicationEvaluation.Business.Concrete
     public class TokenManager : ITokenService
     {
         private readonly IConfiguration _configuration;
+        private readonly IUserService _userService;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public TokenManager(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
+        public TokenManager(IConfiguration configuration, IUserService userService, IHttpContextAccessor httpContextAccessor)
         {
             _configuration = configuration;
+            _userService = userService;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -35,6 +40,37 @@ namespace JobApplicationEvaluation.Business.Concrete
 
             var tokenHandler = new JwtSecurityTokenHandler();
             return tokenHandler.WriteToken(token);
+        }
+
+        public async Task<IDataResult<UserBaseViewModel>> GetUserInfoFromToken()
+        {
+            var context = _httpContextAccessor.HttpContext;
+            var authorizationHeader = context?.Request.Headers["Authorization"].FirstOrDefault();
+
+            if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer "))
+            {
+                return new ErrorDataResult<UserBaseViewModel>(
+                    "Kullanıcı bilgisi geçersiz veya hatalı.",
+                    (int)HttpStatusCode.NotFound
+                );
+            }
+
+            var token = authorizationHeader.Substring("Bearer ".Length).Trim();
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+
+            var userGuid = jwtToken.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userGuid))
+            {
+                return new ErrorDataResult<UserBaseViewModel>(
+                    "Kullanıcı bilgisi bulunamadı.",
+                    (int)HttpStatusCode.NotFound
+                );
+            }
+
+            return await _userService.GetUserByGuidIdAsync(userGuid);
         }
 
         public bool IsTokenValid(string token)

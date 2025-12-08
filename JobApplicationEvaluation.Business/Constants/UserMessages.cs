@@ -7,5 +7,7 @@
         public static string LoginSuccessful { get; } = "Giriş başarılı. Hoş geldiniz!";
         public static string UserAlreadyExists { get; } = "Bu email adresi zaten kayıtlı.";
         public static string UserCreated { get; } = "Kullanıcı başarıyla oluşturuldu";
+        public static string UserUnexpectedError { get; } = "Kullanıcı işlemi sırasında beklenmeyen bir hata oluştu";
+        public static string UserSuccessfullyFetched { get; } = "Kullanıcı başarılı bir şekilde getirildi";
     }
 }
