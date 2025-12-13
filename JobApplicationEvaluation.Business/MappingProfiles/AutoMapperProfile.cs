@@ -4,6 +4,7 @@ using JobApplicationEvaluation.ViewModels.BaseViewModel;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.Company;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.Recourse;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.User;
+using JobApplicationEvaluation.ViewModels.ResponseViewModel.Recourse;
 
 namespace JobApplicationEvaluation.Business.MappingProfiles
 {
@@ -17,6 +18,7 @@ namespace JobApplicationEvaluation.Business.MappingProfiles
             CreateMap<Company, CompanyBaseViewModel>();
             CreateMap<CreateRecourseViewModel, Recourse>();
             CreateMap<UpdateRecourseViewModel, Recourse>();
+            CreateMap<Recourse, UserRecourseListViewModel>();
         }
     }
 }

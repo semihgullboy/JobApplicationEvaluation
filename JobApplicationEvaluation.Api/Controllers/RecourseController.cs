@@ -35,5 +35,12 @@ namespace JobApplicationEvaluation.Api.Controllers
             var result = await _recourseService.DeleteRecourseAsync(recourseId, userModel.Id);
             return HandleResult(result);
         }
+
+        [HttpGet("user-recourses")]
+        public async Task<IActionResult> GetUserRecourses()
+        {
+            var result = await _recourseService.GetUserRecoursesAsync(userModel.Id);
+            return HandleResult(result);
+        }
     }
 }

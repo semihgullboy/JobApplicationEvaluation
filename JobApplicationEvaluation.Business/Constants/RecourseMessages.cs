@@ -10,7 +10,9 @@
         public static string UnauthorizedUpdate { get; } = "Bu kaydı güncelleme yetkiniz bulunmamaktadır.";
         public static string UnauthorizedDelete { get; } = "Bu kaydı silme yetkiniz bulunmamaktadır.";
         public static string RecourseDeleted { get; } = "Kayıt başarılı bir şekilde silindi.";
-        public static string RecourseDeleteError { get; } = "Kayıt silinirken bir hata oluştu.";
+        public static string RecourseDeleteError { get; } = "Kayıt silinirken bir hata oluştu.;";
+        public static string RecourseListFetched { get; } = "Kayıtlar başarılı bir şekilde getirildi.";
+        public static string RecourseListFetchError { get; } = "Kayıtlar getirilirken bir hata oluştu.";
 
     }
 }

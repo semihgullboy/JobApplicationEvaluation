@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobApplicationEvaluation.Entity\JobApplicationEvaluation.Entity.csproj" />
+    <ProjectReference Include="..\JobApplicationEvaluation.ViewModels\JobApplicationEvaluation.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

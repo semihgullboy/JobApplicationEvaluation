@@ -5,6 +5,7 @@ using JobApplicationEvaluation.Core.Result;
 using JobApplicationEvaluation.DataAccess.Abstract;
 using JobApplicationEvaluation.Entity.Concrete;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.Recourse;
+using JobApplicationEvaluation.ViewModels.ResponseViewModel.Recourse;
 using System.Net;
 
 namespace JobApplicationEvaluation.Business.Concrete
@@ -83,6 +84,20 @@ namespace JobApplicationEvaluation.Business.Concrete
                 return new ErrorResult(RecourseMessages.RecourseDeleteError, (int)HttpStatusCode.InternalServerError);
             }
         }
+
+        public async Task<IDataResult<List<UserRecourseListViewModel>>> GetUserRecoursesAsync(int userId)
+        {
+            try
+            {
+                var recourses = await _recourseDal.GetUserRecoursesAsync(userId);
+                return new SuccessDataResult<List<UserRecourseListViewModel>>(recourses, RecourseMessages.RecourseListFetched);
+            }
+            catch (Exception)
+            {
+                return new ErrorDataResult<List<UserRecourseListViewModel>>(RecourseMessages.RecourseListFetchError, (int)HttpStatusCode.InternalServerError);
+            }
+        }
+
 
 
     }
