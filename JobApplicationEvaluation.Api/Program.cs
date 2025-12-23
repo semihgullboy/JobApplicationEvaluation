@@ -47,7 +47,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173/", "https://jobapplicationevaluation.netlify.app/")
+        policy.WithOrigins("http://localhost:5173", "https://jobapplicationevaluation.netlify.app")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
