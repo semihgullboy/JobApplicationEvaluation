@@ -41,7 +41,19 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDataAccessServices(builder.Configuration);
-builder.Services.AddBusinessServices(builder.Configuration); 
+builder.Services.AddBusinessServices(builder.Configuration);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173/", "https://jobapplicationevaluation.netlify.app/")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
 
 var app = builder.Build();
 
