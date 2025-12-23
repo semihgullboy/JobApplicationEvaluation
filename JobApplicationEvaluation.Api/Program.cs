@@ -64,7 +64,7 @@ app.UseSwaggerUI();
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
-app.UseCors("AllowLocalhost");
+app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
 app.UseAuthorization();
