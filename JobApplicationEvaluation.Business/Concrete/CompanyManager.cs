@@ -6,6 +6,7 @@ using JobApplicationEvaluation.DataAccess.Abstract;
 using JobApplicationEvaluation.Entity.Concrete;
 using JobApplicationEvaluation.ViewModels.BaseViewModel;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.Company;
+using JobApplicationEvaluation.ViewModels.ResponseViewModel.Company;
 using System.Net;
 
 namespace JobApplicationEvaluation.Business.Concrete
@@ -88,6 +89,19 @@ namespace JobApplicationEvaluation.Business.Concrete
             catch (Exception)
             {
                 return new ErrorDataResult<List<CompanyBaseViewModel>>(CompanyMessages.CompanyListingError, (int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<IDataResult<PagedResult<CompanyListViewModel>>> GetFilteredCompaniesAsync(CompanyFilterViewModel filter)
+        {
+            try
+            {
+                var pagedResult = await _companyDal.GetFilteredCompaniesAsync(filter);
+                return new SuccessDataResult<PagedResult<CompanyListViewModel>>(pagedResult, CompanyMessages.CompanyListed);
+            }
+            catch (Exception)
+            {
+                return new ErrorDataResult<PagedResult<CompanyListViewModel>>(CompanyMessages.CompanyListingError, (int)HttpStatusCode.InternalServerError);
             }
         }
     }

@@ -44,5 +44,13 @@ namespace JobApplicationEvaluation.Api.Controllers
             var result = await _companyService.GetAllCompanyAsync();
             return HandleResult(result);
         }
+
+        [HttpPost("Filter")]
+        public async Task<IActionResult> FilterCompanies([FromQuery] CompanyFilterViewModel filter)
+        {
+            var result = await _companyService.GetFilteredCompaniesAsync(filter);
+            return HandleResult(result);
+        }
+
     }
 }

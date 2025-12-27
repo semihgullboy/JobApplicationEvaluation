@@ -1,6 +1,7 @@
 ﻿using JobApplicationEvaluation.Core.Result;
 using JobApplicationEvaluation.ViewModels.BaseViewModel;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.Company;
+using JobApplicationEvaluation.ViewModels.ResponseViewModel.Company;
 
 namespace JobApplicationEvaluation.Business.Abstract
 {
@@ -10,5 +11,6 @@ namespace JobApplicationEvaluation.Business.Abstract
         Task<IResult> UpdateCompanyAsync(CompanyBaseViewModel model);
         Task<IResult> DeleteCompanyAsync(int companyId);
         Task<IDataResult<List<CompanyBaseViewModel>>> GetAllCompanyAsync();
+        Task<IDataResult<PagedResult<CompanyListViewModel>>> GetFilteredCompaniesAsync(CompanyFilterViewModel filter);
     }
 }
