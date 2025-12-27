@@ -2,15 +2,15 @@
 {
     public static class CompanyMessages
     {
-        public static string CompanyCreated { get; } = "Şirket başarılı bir şekilde oluşturuldu.";
-        public static string CompanyCreationError { get; } = "Şirket oluşturulurken bir hata oluştu.";
-        public static string CompanyNotFound { get; } = "Herhangi bir şirket bulunamadı.";
-        public static string CompanyListed { get; } = "Şirketler başarılı bir şekilde listelendi.";
-        public static string CompanyListingError { get; } = "Şirketler listelenirken bir hata oluştu.";
-        public static string CompanyUpdated { get; } = "Şirket başarılı bir şekilde güncellendi.";
-        public static string CompanyUpdateError { get; } = "Şirket güncellenirken bir hata oluştu.";
-        public static string CompanyDeleted { get; } = "Şirket başarılı bir şekilde silindi.";
-        public static string CompanyDeletionError { get; } = "Şirket silinirken bir hata oluştu.";
+        public const string CompanyCreated = "Şirket başarılı bir şekilde oluşturuldu.";
+        public const string CompanyCreationError = "Şirket oluşturulurken bir hata oluştu.";
+        public const string CompanyNotFound = "Herhangi bir şirket bulunamadı.";
+        public const string CompanyListed = "Şirketler başarılı bir şekilde listelendi.";
+        public const string CompanyListingError = "Şirketler listelenirken bir hata oluştu.";
+        public const string CompanyUpdated = "Şirket başarılı bir şekilde güncellendi.";
+        public const string CompanyUpdateError = "Şirket güncellenirken bir hata oluştu.";
+        public const string CompanyDeleted = "Şirket başarılı bir şekilde silindi.";
+        public const string CompanyDeletionError = "Şirket silinirken bir hata oluştu.";
 
     }
 }

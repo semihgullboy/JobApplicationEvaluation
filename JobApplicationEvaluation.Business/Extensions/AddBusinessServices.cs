@@ -21,6 +21,7 @@ namespace JobApplicationEvaluation.Business.Extensions
             services.AddScoped<PasswordHasher<User>>();
             services.AddScoped<ICompanyService, CompanyManager>();
             services.AddScoped<IRecourseService, RecourseManager>();
+            services.AddScoped<ISectorService, SectorManager>();
 
             services.AddAutoMapper(typeof(AutoMapperProfile));
 

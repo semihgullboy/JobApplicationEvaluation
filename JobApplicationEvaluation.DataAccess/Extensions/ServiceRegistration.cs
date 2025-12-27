@@ -17,6 +17,7 @@ namespace JobApplicationEvaluation.DataAccess.Extensions
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<ICompanyDal, EfCompanyDal>();
             services.AddScoped<IRecourseDal, EfRecourseDal>();
+            services.AddScoped<ISectorDal, EfSectorDal>();
         }
     }
 }

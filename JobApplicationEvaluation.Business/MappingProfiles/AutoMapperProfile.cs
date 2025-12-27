@@ -19,6 +19,7 @@ namespace JobApplicationEvaluation.Business.MappingProfiles
             CreateMap<CreateRecourseViewModel, Recourse>();
             CreateMap<UpdateRecourseViewModel, Recourse>();
             CreateMap<Recourse, UserRecourseListViewModel>();
+            CreateMap<Sector, SectorBaseViewModel>();
         }
     }
 }
