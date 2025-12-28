@@ -39,6 +39,11 @@ namespace JobApplicationEvaluation.DataAccess.Concrete.EntityFramework
                 ReviewCount = c.Reviews.Count(r => r.IsActive)
             });
 
+            if (filter.MinAverageRating.HasValue)
+                projected = projected.Where(c => c.AverageRating >= filter.MinAverageRating.Value);
+
+            if (filter.MaxAverageRating.HasValue)
+                projected = projected.Where(c => c.AverageRating <= filter.MaxAverageRating.Value);
 
             projected = filter.SortBy switch
                 {

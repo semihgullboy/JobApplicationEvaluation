@@ -10,6 +10,8 @@ namespace JobApplicationEvaluation.ViewModels.RequestViewModel.Company
         public bool SortDesc { get; set; }
         public int Page { get; set; } = 1;
         public int PageSize { get; set; } = 12;
+        public double? MinAverageRating { get; set; }
+        public double? MaxAverageRating { get; set; } 
     }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]

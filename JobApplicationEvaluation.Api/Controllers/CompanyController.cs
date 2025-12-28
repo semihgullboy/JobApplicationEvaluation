@@ -1,6 +1,7 @@
 ﻿using JobApplicationEvaluation.Business.Abstract;
 using JobApplicationEvaluation.ViewModels.BaseViewModel;
 using JobApplicationEvaluation.ViewModels.RequestViewModel.Company;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobApplicationEvaluation.Api.Controllers
@@ -45,7 +46,9 @@ namespace JobApplicationEvaluation.Api.Controllers
             return HandleResult(result);
         }
 
+        
         [HttpPost("Filter")]
+        [AllowAnonymous]
         public async Task<IActionResult> FilterCompanies([FromQuery] CompanyFilterViewModel filter)
         {
             var result = await _companyService.GetFilteredCompaniesAsync(filter);
