@@ -1,5 +1,6 @@
 ﻿using JobApplicationEvaluation.Business.Abstract;
 using JobApplicationEvaluation.ViewModels.BaseViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobApplicationEvaluation.Api.Controllers
@@ -16,6 +17,7 @@ namespace JobApplicationEvaluation.Api.Controllers
         }
 
         [HttpGet()]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllSectors()
         {
             var result = await _sectorService.GetAllSectorsAsync();
